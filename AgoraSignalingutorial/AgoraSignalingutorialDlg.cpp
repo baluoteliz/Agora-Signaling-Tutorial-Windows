@@ -186,6 +186,10 @@ void CAgoraSignalingutorialDlg::OnBnClickedButtonLogin()
 		AfxMessageBox(_T("Account 不能为空.请重新输入.."));
 		return;
 	}
+	else if (isContailSpace(strAccount)){
+		AfxMessageBox(_T("Account 不能包含空字符.请重新输入.."));
+		return;
+	}
 
 	m_account = cs2s(strAccount);
 	std::string appId = m_pSignalInstance->getAppId();

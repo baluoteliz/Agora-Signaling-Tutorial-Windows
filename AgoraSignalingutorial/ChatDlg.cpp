@@ -69,7 +69,7 @@ void CChatDlg::OnPaint()
 	CPaintDC dc(this); // device context for painting
 	// TODO:  在此处添加消息处理程序代码
 	// 不为绘图消息调用 CDialogEx::OnPaint()
-
+	
 	POSITION pos = m_strMsgList.GetHeadPosition();
 	dc.SetTextColor(RGB(0, 0, 0));
 	dc.SetBkColor(RGB(192, 192, 192));
@@ -80,6 +80,8 @@ void CChatDlg::OnPaint()
 		dc.TextOut(20, heighLine, str);
 		heighLine -= 20;
 	}
+
+	//TRACE("curParam:%s onPaint\n", m_inputParam.data());
 }
 
 void CChatDlg::AddChatMessage(std::string Uid, LPCTSTR lpMessage)
@@ -112,6 +114,7 @@ void CChatDlg::AddChatMessage(std::string Uid, LPCTSTR lpMessage)
 
 	m_strMsgList.AddHead(str);
 
+	if (IsWindowVisible())
 	Invalidate(TRUE);
 }
 

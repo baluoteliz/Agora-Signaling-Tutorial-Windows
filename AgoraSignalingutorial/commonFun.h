@@ -19,6 +19,7 @@ float str2float(const std::string &str);
 CString s2cs(const std::string &str);
 std::string cs2s(const CString &str);
 
+bool isContailSpace(CString str);
 void initlog();
 void uninitLog();
 

@@ -110,13 +110,11 @@ void CDlgChatMsg::OnTimer(UINT_PTR nIDEvent)
 			m_pSignalInstance->QueryIsOnline(curAccount);
 		}
 		
-		if (m_curOptionType == eType_Instance){
+		if (m_curOptionType == eType_Instance && !m_pDlgInput->IsWindowVisible()){
 
-			//GetDlgItem(IDC_BUTTON_P2PMsg)->SetFocus();
 		}
-		else if (eType_Channel == m_curOptionType){
+		else if (eType_Channel == m_curOptionType && !m_pDlgInput->IsWindowVisible()){
 
-			//GetDlgItem(IDC_BUTTON_CHANNELMsg)->SetFocus();
 		}
 	}
 }
@@ -126,7 +124,7 @@ void CDlgChatMsg::OnBnClickedButtonSend()
 	// TODO:  在此添加控件通知处理程序代码
 	CString sendMsg;
 	GetDlgItem(IDC_EDIT_SendMsg)->GetWindowTextW(sendMsg);
-	if (_T("") != sendMsg)
+	if (_T("") != sendMsg && m_pCurChat)
 	{
 		m_pCurChat->AddChatMessage(m_curAccount,sendMsg);
 		if (m_curOptionType == eType_Instance){
@@ -138,6 +136,8 @@ void CDlgChatMsg::OnBnClickedButtonSend()
 			m_pSignalInstance->sendChannelMsg(m_pCurChat->getCurParam(), cs2s(sendMsg));
 		}
 	}
+
+	GetDlgItem(IDC_EDIT_SendMsg)->SetWindowTextW(_T(""));
 }
 
 
@@ -240,10 +240,18 @@ HRESULT CDlgChatMsg::onMessageInstantReceive(WPARAM wParam, LPARAM lParam)
 	sprintf_s(logDesc, "onMessageInstantReceive(%s,%u,%u,%s,%u)", lpData->account.data(), lpData->account.size(), lpData->uid, lpData->msg.data(), lpData->msg.size());
 	LOG_MSG(logDesc, LogType_CallBack);
 
-	if (m_pCurChat && m_pCurChat->getCurParam() == lpData->account && 
-		eType_Instance == m_pCurChat->getCurType()){
+	std::map<std::string, CChatDlg*>::iterator it = m_mapChatP2P.find(lpData->account);
+	if (m_mapChatP2P.end() != it){
 
-		m_pCurChat->AddChatMessage(lpData->account, s2cs(lpData->msg));
+		it->second->AddChatMessage(lpData->account, s2cs(lpData->msg));
+	}
+	else{
+
+		CWnd* pWnd = GetDlgItem(IDC_STATIC_MsgListBK);
+		CChatDlg *pTemp = new CChatDlg(eType_Instance, lpData->account, pWnd);
+		pTemp->Create(CChatDlg::IDD, pWnd);
+		pTemp->AddChatMessage(lpData->account, s2cs(lpData->msg));
+		m_mapChatP2P[lpData->account] = pTemp;
 	}
 
 	delete lpData; lpData = nullptr;
@@ -258,10 +266,19 @@ HRESULT CDlgChatMsg::onMessageChannelReceive(WPARAM wParam, LPARAM lParam)
 	sprintf_s(logDesc, "onMessageChannelReceive(%s,%u,%s,%u,%u,%s,%u)", lpData->channelID.data(), lpData->channelID.size(),lpData->account.data(),lpData->account.size(),lpData->uid,lpData->msg.data(),lpData->msg.size());
 	LOG_MSG(logDesc, LogType_CallBack);
 
-	if (m_pCurChat && lpData->channelID == m_pCurChat->getCurParam() && 
-		eType_Channel == m_pCurChat->getCurType() && m_curAccount != lpData->account){
+	std::map<std::string, CChatDlg*>::iterator it = m_mapChatChannel.find(lpData->channelID);
+	if (m_mapChatChannel.end() != it){
+		if (m_curAccount != lpData->account)
+		it->second->AddChatMessage(lpData->account, s2cs(lpData->msg));
+	}
+	else {
 
-		m_pCurChat->AddChatMessage(lpData->account, s2cs(lpData->msg));
+		CWnd* pWnd = GetDlgItem(IDC_STATIC_MsgListBK);
+		CChatDlg* pTemp = new CChatDlg(eType_Channel, lpData->channelID, pWnd);
+		pTemp->Create(CChatDlg::IDD, pWnd);
+		m_mapChatChannel[lpData->channelID] = pTemp;
+		if (m_curAccount == lpData->account)
+		pTemp->AddChatMessage(lpData->account, s2cs(lpData->msg));
 	}
 
 	delete lpData; lpData = nullptr;
@@ -356,6 +373,12 @@ void CDlgChatMsg::chooseInstance(const std::string &userAccount)
 	std::map<std::string, CChatDlg*>::iterator it = m_mapChatP2P.find(userAccount);
 	if (m_mapChatP2P.end() != it)
 	{
+		if (it->second != m_pCurChat){
+			if (m_pCurChat){
+				m_pCurChat->ShowWindow(SW_HIDE);
+			}
+			m_pCurChat = it->second;
+		}
 		it->second->CenterWindow();
 		it->second->ShowWindow(SW_SHOW);
 		it->second->Invalidate(TRUE);
@@ -392,10 +415,14 @@ void CDlgChatMsg::showChannelInfo(const std::string &channelName)
 	std::map<std::string, CChatDlg*>::iterator it = m_mapChatChannel.find(channelName);
 	if (m_mapChatChannel.end() != it)
 	{
+		if (it->second != m_pCurChat){
+			if (m_pCurChat){
+				m_pCurChat->ShowWindow(SW_HIDE);
+			}
+			m_pCurChat = it->second;
+		}
 		it->second->CenterWindow();
 		it->second->ShowWindow(SW_SHOW);
-		it->second->Invalidate(TRUE);
-		m_pCurChat = it->second;
 	}
 	else
 	{
@@ -409,7 +436,6 @@ void CDlgChatMsg::showChannelInfo(const std::string &channelName)
 		m_mapChatChannel[channelName] = m_pCurChat;
 		m_pCurChat->Create(CChatDlg::IDD, pWnd);
 		m_pCurChat->ShowWindow(SW_SHOW);
-		m_pCurChat->Invalidate(TRUE);
 	}
 }
 

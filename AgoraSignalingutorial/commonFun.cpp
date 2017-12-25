@@ -142,6 +142,11 @@ std::string utf82gbk(const std::string &utf8)
 	return utf82gbk(utf8.c_str());
 }
 
+bool isContailSpace(CString str)
+{
+	return str.Find(_T(' ')) > 0;
+}
+
 void initlog()
 {
 	std::string strLogPath = getAbsoluteDir() + "AgoraSignalSDK.log";
