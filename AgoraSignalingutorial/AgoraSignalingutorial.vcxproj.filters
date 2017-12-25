@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{40e4949e-7e2d-4f86-bfd0-eff3e0b2ef9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AgoraSDK">
+      <UniqueIdentifier>{9771f05d-3ecf-44fd-9220-1a0400a9477b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AgoraSignalingutorial.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="AgoraSignalingutorialDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgChatMsg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ChatDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="commonFun.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="SingleWrap.h">
+      <Filter>AgoraSDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SignalInstance.h">
+      <Filter>AgoraSDK</Filter>
+    </ClInclude>
+    <ClInclude Include="utils.h">
+      <Filter>AgoraSDK</Filter>
+    </ClInclude>
+    <ClInclude Include="FileIO.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="generatorSignalToken.h">
+      <Filter>AgoraSDK</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgInput.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AgoraSignalingutorial.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="AgoraSignalingutorialDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgChatMsg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ChatDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="commonFun.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="FileIO.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="SingleWrap.cpp">
+      <Filter>AgoraSDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SignalInstance.cpp">
+      <Filter>AgoraSDK</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgInput.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="AgoraSignalingutorial.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\AgoraSignalingutorial.rc2">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Debug\AgoraSignal.ini" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\AgoraSignalingutorial.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
