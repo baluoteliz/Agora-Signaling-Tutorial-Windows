@@ -37,7 +37,7 @@ AppCertificatedId=
 - Visual Studio 2013
 
 ## 运行说明
-- 1.SDK环境2.0801
+- 1.SDK环境1.2.0801
 - 2.需要将 SDK 中的 DLL 文件拷贝到编译执行目录
 
 ## 联系我们
