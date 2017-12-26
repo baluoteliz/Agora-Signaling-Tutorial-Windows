@@ -19,7 +19,8 @@ Agora 信令 SDK 支持 iOS / Android / Web 等多个平台，你可以查看对
 - IOS    : https://github.com/AgoraIO/Agora-Signaling-Tutorial-iOS-Swift
 - Web    : https://github.com/AgoraIO/Agora-Signaling-Tutorial-Web
 - MacOS  : https://github.com/AgoraIO/Agora-Signaling-Tutorial-macOS-Swift
-- MacOS  : https://github.com/AgoraIO/Agora-Signaling-Tutorial-Windows
+- MacOS  : https://github.com/AgoraIO/Agora-Signaling-Tutorial-Linux
+- Java   : https://github.com/AgoraIO/Agora-Signaling-Tutorial-Java
 
 ## 运行示例程序
 首先在 [Agora.io 注册](https://dashboard.agora.io/cn/signup/) 注册账号，并创建自己的测试项目，获取到 AppID。
