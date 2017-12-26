@@ -1,4 +1,4 @@
-# Agora iOS Signaling Tutorial for Windows
+# Agora Signaling Tutorial for Windows
 *其他语言版本： [简体中文](README.md)*
 
 The Agora Windows Sample App is an open-source demo that will help you get message chat integrated directly into your Windows applications using the Agora Signal SDK.
