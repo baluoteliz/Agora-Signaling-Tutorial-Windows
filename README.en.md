@@ -11,9 +11,9 @@ With this sample app, you can:
 - Join channel
 - Send channel message, receive channel message
 - Leave channel
-- Logout signal server
+- Logout signaling server
 
-Agora Signal SDK supports Android / Web / MacOS. You can find demos of these platform here:
+Agora Signaling SDK supports Android / Web / MacOS. You can find demos of these platform here:
 
 - Android: https://github.com/AgoraIO/Agora-Signaling-Tutorial-Android
 - Web    : https://github.com/AgoraIO/Agora-Signaling-Tutorial-Web
