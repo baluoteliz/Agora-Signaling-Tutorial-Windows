@@ -35,7 +35,7 @@ AppCertificatedId=
 ```
 
 ## Developer Environment Requirements
-- win7以上
+- win7 above
 - Visual Studio 2013
 
 ## Operating Instructions
