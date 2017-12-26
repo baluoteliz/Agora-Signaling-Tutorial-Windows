@@ -19,7 +19,7 @@ Agora 信令 SDK 支持 iOS / Android / Web 等多个平台，你可以查看对
 - IOS    : https://github.com/AgoraIO/Agora-Signaling-Tutorial-iOS-Swift
 - Web    : https://github.com/AgoraIO/Agora-Signaling-Tutorial-Web
 - MacOS  : https://github.com/AgoraIO/Agora-Signaling-Tutorial-macOS-Swift
-- MacOS  : https://github.com/AgoraIO/Agora-Signaling-Tutorial-Linux
+- Linux  : https://github.com/AgoraIO/Agora-Signaling-Tutorial-Linux
 - Java   : https://github.com/AgoraIO/Agora-Signaling-Tutorial-Java
 
 ## 运行示例程序
