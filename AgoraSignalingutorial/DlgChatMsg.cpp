@@ -45,6 +45,7 @@ BEGIN_MESSAGE_MAP(CDlgChatMsg, CDialogEx)
 	
 	ON_WM_PAINT()
 	ON_WM_TIMER()
+	ON_WM_CLOSE()
 	ON_BN_CLICKED(IDC_BUTTON_SEND, &CDlgChatMsg::OnBnClickedButtonSend)
 	ON_BN_CLICKED(IDC_BUTTON_EXIT, &CDlgChatMsg::OnBnClickedButtonExit)
 	ON_BN_CLICKED(IDC_BUTTON_P2PMsg, &CDlgChatMsg::OnBnClickedButtonP2pmsg)
@@ -95,6 +96,8 @@ void CDlgChatMsg::OnPaint()
 
 void CDlgChatMsg::OnClose()
 {
+	OnBnClickedButtonExit();
+	KillTimer(TIMER_IDEVENT_QUERYISONLINE_INTERVAL);
 	uninitCtrl();
 	uninitResource();
 	CDialogEx::OnCancel();
@@ -110,10 +113,10 @@ void CDlgChatMsg::OnTimer(UINT_PTR nIDEvent)
 			m_pSignalInstance->QueryIsOnline(curAccount);
 		}
 		
-		if (m_curOptionType == eType_Instance && !m_pDlgInput->IsWindowVisible()){
+		if (m_pDlgInput && m_curOptionType == eType_Instance && !m_pDlgInput->IsWindowVisible()){
 
 		}
-		else if (eType_Channel == m_curOptionType && !m_pDlgInput->IsWindowVisible()){
+		else if (m_pDlgInput && eType_Channel == m_curOptionType && !m_pDlgInput->IsWindowVisible()){
 
 		}
 	}
