@@ -39,7 +39,7 @@ AppCertificatedId=
 - Visual Studio 2013
 
 ## Operating Instructions
-- 1. To the network https://www.agora.io/cn/download/ download the latest signaling library, copy the SDK file to the same level and Sln directory
+- 1.To the network https://www.agora.io/cn/download/ download the latest signaling library, copy the SDK file to the same level and Sln directory
 - 2.SDK Version 1.2.0801
 - 3.You need to copy the agorasdk.dll file in the DLL directory of the SDK to the compiled executable directory (debug / release)
 
