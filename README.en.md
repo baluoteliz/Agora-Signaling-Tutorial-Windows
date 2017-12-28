@@ -1,11 +1,11 @@
 # Agora Signaling Tutorial for Windows
 *其他语言版本： [简体中文](README.md)*
 
-The Agora Windows Sample App is an open-source demo that will help you get message chat integrated directly into your Windows applications using the Agora Signal SDK.
+The Agora Windows Sample App is an open-source demo that will help you get message chat integrated directly into your Windows applications using the Agora Signaling SDK.
 
 With this sample app, you can:
 
-- Login into chat app
+- Login into Signaling Serve
 - Send point to point message and receive point to point message off line
 - Display point to point history message
 - Join channel
