@@ -6,7 +6,7 @@
 
 在这个示例项目中包含了以下功能：
 
-- 登录信服务器
+- 登录信令服务器
 - 查询点对点聊天对象是否在线
 - 发送点对点消息，离线接收点对点消息
 - 加入频道
@@ -38,8 +38,9 @@ AppCertificatedId=
 - Visual Studio 2013
 
 ## 运行说明
-- 1.SDK环境1.2.0801
-- 2.需要将 SDK 中的  DLL 目录下 agorasdk.dll 文件拷贝到编译执行目录（debug / release）
+- 1.到管网https://www.agora.io/cn/download/ 下载最新的信令库,将 SDK 文件拷贝到和 Sln 的同级目录下即可
+- 2.SDK环境1.2.0801
+- 3.需要将 SDK 中的  DLL 目录下 agorasdk.dll 文件拷贝到编译执行目录（debug / release）
 
 ## 联系我们
 - 完整的 API 文档见 [文档中心](https://docs.agora.io/cn/)
