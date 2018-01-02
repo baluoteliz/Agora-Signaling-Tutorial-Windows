@@ -33,6 +33,7 @@ Update "Agora-Signaling-Tutorial-Windows/AgoraSignal.ini" with your App ID and A
 AppID=
 AppCertificatedId=
 ```
+The user can generate a tokenID based on the AppCertificateID, and the tokenID can also be '_no_need_token'
 
 ## Developer Environment Requirements
 - win7 above
@@ -40,8 +41,7 @@ AppCertificatedId=
 
 ## Operating Instructions
 - 1.To the network https://www.agora.io/cn/download/ download the latest signaling library, copy the SDK file to the same level and Sln directory
-- 2.SDK Version 1.2.0801
-- 3.You need to copy the agorasdk.dll file in the DLL directory of the SDK to the compiled executable directory (debug / release)
+- 2.You need to copy the agorasdk.dll file in the DLL directory of the SDK to the compiled executable directory (debug / release)
 
 ## Connect Us
 - You can find full API document at [Document Center](https://docs.agora.io/en/)
