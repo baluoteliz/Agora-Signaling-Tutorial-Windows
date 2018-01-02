@@ -54,14 +54,8 @@
     <ClInclude Include="SignalInstance.h">
       <Filter>AgoraSDK</Filter>
     </ClInclude>
-    <ClInclude Include="utils.h">
-      <Filter>AgoraSDK</Filter>
-    </ClInclude>
     <ClInclude Include="FileIO.h">
       <Filter>common</Filter>
-    </ClInclude>
-    <ClInclude Include="generatorSignalToken.h">
-      <Filter>AgoraSDK</Filter>
     </ClInclude>
     <ClInclude Include="DlgInput.h">
       <Filter>头文件</Filter>

@@ -22,20 +22,6 @@ void CAgoraSignalInstance::ReleaseInstance()
 	}
 }
 
-// CAgoraSignalInstance::CAgoraSignalInstance() :
-// m_ChatMsg(NULL),
-// m_loginWnd(NULL),
-// m_AgoraAPI(NULL),
-// m_isLoginPt(FALSE),
-// m_isJoinChannel(FALSE),
-// m_Account(""),
-// m_ChannelName(""),
-// m_channelKey(""),
-// m_AppId(""),
-// m_AppCertificateId("")
-// {
-// }
-
 CAgoraSignalInstance::CAgoraSignalInstance(const std::string appId):
 m_ChatMsg(NULL),
 m_loginWnd(NULL),

@@ -36,12 +36,11 @@
 
 #include <iostream>
 
-
-#include "agora_api_win.h"
+#include "agora_sig.h"
 #ifdef _DEBUG
-#pragma comment(lib,"agorasdk.lib")
+#pragma comment(lib,"agora_sig_sdk.lib")
 #else
-#pragma comment(lib,"agorasdk.lib")
+#pragma comment(lib,"agora_sig_sdk.lib")
 #endif
 
 using namespace agora_sdk_win;

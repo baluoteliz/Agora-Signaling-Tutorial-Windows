@@ -40,7 +40,6 @@ public:
 	std::string getSDKVersion();
 
 protected:
-	//CAgoraSignalInstance();
 	CAgoraSignalInstance(const std::string appId);
 
 private:

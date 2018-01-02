@@ -10,7 +10,6 @@
 #include "commonFun.h"
 #include "SignalInstance.h"
 #include "SingleWrap.h"
-#include "generatorSignalToken.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -198,7 +197,7 @@ void CAgoraSignalingutorialDlg::OnBnClickedButtonLogin()
 	time_t ltime;
 	time(&ltime);
 	int expiredSecond = ltime + 3600;
-	std::string channelKey = CGeneSignalToken::generateSignallingToken(m_account, appId, appCertificateId, expiredSecond);
+	std::string channelKey = "_no_need_token";
 	m_pSignalInstance->setChannelKey(channelKey);
 	m_pSignalInstance->Login(m_account);
 }
