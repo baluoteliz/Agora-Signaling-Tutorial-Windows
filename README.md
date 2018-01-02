@@ -40,13 +40,13 @@ AppCertificatedId=
 
 ## 运行说明
 - 1.到管网https://www.agora.io/cn/download/ 下载最新的信令库,将 SDK 文件拷贝到和 Sln 的同级目录下即可 结构如下：
-     ---SDK
-     ---Include
-         ---agora_sig.h
-     ---Lib
-         ---agora_sig_sdk.lib
-     ---Dll
-         ---agora_sig_sdk.dll
+-     ---SDK
+-     ---Include
+-         ---agora_sig.h
+-     ---Lib
+-         ---agora_sig_sdk.lib
+-     ---Dll
+-         ---agora_sig_sdk.dll
          
 
 - 2.需要将 SDK 中的  DLL 目录下 agora_sig_sdk.dll 文件拷贝到编译执行目录（debug / release）
