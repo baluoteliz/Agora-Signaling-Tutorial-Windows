@@ -23,8 +23,8 @@ Agora 信令 SDK 支持 iOS / Android / Web 等多个平台，你可以查看对
 - Java   : https://github.com/AgoraIO/Agora-Signaling-Tutorial-Java
 
 ## 运行示例程序
-首先在 [Agora.io 注册](https://dashboard.agora.io/cn/signup/) 注册账号，并创建自己的测试项目，获取到 AppID。
-然后选择测试项目里的编辑，App Certificate 点击启用，根据操作拿到App Certificate。
+- 首先在 [Agora.io 注册](https://dashboard.agora.io/cn/signup/) 注册账号，并创建自己的测试项目，获取到 AppID。
+然后选择测试项目里的编辑，如果该 AppID 对应的Certificate已经启用，根据操作拿到App Certificate。
 将 AppID 和App Certificate 填写进 "AgoraSignal.ini" 中
 
 ```
@@ -32,15 +32,24 @@ Agora 信令 SDK 支持 iOS / Android / Web 等多个平台，你可以查看对
 AppID=
 AppCertificatedId=
 ```
+- 用户可以根据 AppCertificateID 生成 tokenID ,tokenID也可以为 “_no_need_token”.
 
 ## 运行环境
 - win7以上
 - Visual Studio 2013
 
 ## 运行说明
-- 1.到管网https://www.agora.io/cn/download/ 下载最新的信令库,将 SDK 文件拷贝到和 Sln 的同级目录下即可
-- 2.SDK环境1.2.0801
-- 3.需要将 SDK 中的  DLL 目录下 agorasdk.dll 文件拷贝到编译执行目录（debug / release）
+- 1.到管网https://www.agora.io/cn/download/ 下载最新的信令库,将 SDK 文件拷贝到和 Sln 的同级目录下即可 结构如下：
+     ---SDK
+     ---Include
+         ---agora_sig.h
+     ---Lib
+         ---agora_sig_sdk.lib
+     ---Dll
+         ---agora_sig_sdk.dll
+         
+
+- 2.需要将 SDK 中的  DLL 目录下 agora_sig_sdk.dll 文件拷贝到编译执行目录（debug / release）
 
 ## 联系我们
 - 完整的 API 文档见 [文档中心](https://docs.agora.io/cn/)
