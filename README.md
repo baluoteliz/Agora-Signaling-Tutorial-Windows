@@ -39,9 +39,10 @@ AppCertificatedId=
 - Visual Studio 2013
 
 ## 运行说明
-- 1.到官网https://www.agora.io/cn/download/ 下载最新的信令库,将 libs 文件夹拷贝到和 Sln 的同级目录下即可       
+- 1.在Sln同级目录创建SDK文件夹
+- 2.到官网https://www.agora.io/cn/download/ 下载最新的信令库,将 libs 文件夹下所有文件夹拷贝到和SDK目录下即可       
 
-- 2.需要将 SDK 中的  DLL 目录下 agora_sig_sdk.dll 文件拷贝到编译执行目录（debug / release）
+- 3.需要将 SDK 中的  dll 目录下 agora_sig_sdk.dll 文件拷贝到编译执行目录（debug / release）
 
 ## 联系我们
 - 完整的 API 文档见 [文档中心](https://docs.agora.io/cn/)
