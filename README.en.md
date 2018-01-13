@@ -42,7 +42,7 @@ The user can generate a tokenID based on the AppCertificateID, and the tokenID c
 ## Operating Instructions
 - 1.Create SDK directory at the same level of Sln directory
 - 2.To the network https://www.agora.io/cn/download/ download the latest signaling library, copy all directories in libs to SDK directory. 
-- 3.You need to copy the agorasdk.dll file in the dLL directory of the SDK to the compiled executable directory (debug / release)
+- 3.You need to copy the agora_sig_sdk.dll file in the dLL directory of the SDK to the compiled executable directory (debug / release)
 
 ## Connect Us
 - You can find full API document at [Document Center](https://docs.agora.io/en/)
