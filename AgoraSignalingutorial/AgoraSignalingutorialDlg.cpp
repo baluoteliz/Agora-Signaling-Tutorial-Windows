@@ -220,6 +220,9 @@ void CAgoraSignalingutorialDlg::initResource()
 	std::string AppId = gConfigSignal.getAppID();
 	if ("" == AppId)
 	{
+		gConfigSignal.setAppID("");
+		std::string ConfigPath = gConfigSignal.getFilePath();
+		ShellExecute(NULL, _T("open"), s2cs(ConfigPath), NULL, NULL, SW_SHOW);
 		AfxMessageBox(_T("APPID 不能为空,请修改AgoraSignal.ini配置项中的AppID 和 AppCertificatedId"));
 		PostQuitMessage(0);
 		return;
