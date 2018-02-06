@@ -175,7 +175,7 @@ void CDlgChatMsg::OnBnClickedButtonChannelmsg()
 	m_pDlgInput->showWindow(eType_Channel);
 }
 
-HRESULT CDlgChatMsg::onUpdateInputParam(WPARAM wParam, LPARAM lParam)
+LRESULT CDlgChatMsg::onUpdateInputParam(WPARAM wParam, LPARAM lParam)
 {
 	PAG_INPUTPARAM lpData = (PAG_INPUTPARAM)wParam;
 	switch (lpData->type)
@@ -195,7 +195,7 @@ HRESULT CDlgChatMsg::onUpdateInputParam(WPARAM wParam, LPARAM lParam)
 }
 
 
-HRESULT CDlgChatMsg::onQueryUserStatusResult(WPARAM wParam, LPARAM lParam)
+LRESULT CDlgChatMsg::onQueryUserStatusResult(WPARAM wParam, LPARAM lParam)
 {
 	PAG_SIGNAL_QUERYUSERSTATUSRESULT lpData = (PAG_SIGNAL_QUERYUSERSTATUSRESULT)wParam;
 	char logDesc[MAXPATHLEN] = { '\0' };
@@ -219,7 +219,7 @@ HRESULT CDlgChatMsg::onQueryUserStatusResult(WPARAM wParam, LPARAM lParam)
 }
 
 
-HRESULT CDlgChatMsg::onMessageSendSuccess(WPARAM wParam, LPARAM lParam)
+LRESULT CDlgChatMsg::onMessageSendSuccess(WPARAM wParam, LPARAM lParam)
 {
 	PAG_SIGNAL_MESSAGESENDSUCCESS lpData = (PAG_SIGNAL_MESSAGESENDSUCCESS)wParam;
 	char logDesc[MAXPATHLEN] = { '\0' };
@@ -231,7 +231,7 @@ HRESULT CDlgChatMsg::onMessageSendSuccess(WPARAM wParam, LPARAM lParam)
 	return TRUE;
 }
 
-HRESULT CDlgChatMsg::onMessageSendError(WPARAM wParam, LPARAM lParam)
+LRESULT CDlgChatMsg::onMessageSendError(WPARAM wParam, LPARAM lParam)
 {
 	PAG_SIGNAL_MESSAGESENDERROR lpData = (PAG_SIGNAL_MESSAGESENDERROR)wParam;
 	char logDesc[MAXPATHLEN] = { '\0' };
@@ -243,7 +243,7 @@ HRESULT CDlgChatMsg::onMessageSendError(WPARAM wParam, LPARAM lParam)
 	return TRUE;
 }
 
-HRESULT CDlgChatMsg::onMessageInstantReceive(WPARAM wParam, LPARAM lParam)
+LRESULT CDlgChatMsg::onMessageInstantReceive(WPARAM wParam, LPARAM lParam)
 {
 	PAG_SIGNAL_MESSAGEINSTANCERECEIVE lpData = (PAG_SIGNAL_MESSAGEINSTANCERECEIVE)wParam;
 	char logDesc[MAXPATHLEN] = { '\0' };
@@ -269,7 +269,7 @@ HRESULT CDlgChatMsg::onMessageInstantReceive(WPARAM wParam, LPARAM lParam)
 	return TRUE;
 }
 
-HRESULT CDlgChatMsg::onMessageChannelReceive(WPARAM wParam, LPARAM lParam)
+LRESULT CDlgChatMsg::onMessageChannelReceive(WPARAM wParam, LPARAM lParam)
 {
 	PAG_SIGNAL_MESSAGECHANNELRECEIVE lpData = (PAG_SIGNAL_MESSAGECHANNELRECEIVE)wParam;
 	char logDesc[MAXPATHLEN] = { '\0' };
@@ -295,7 +295,7 @@ HRESULT CDlgChatMsg::onMessageChannelReceive(WPARAM wParam, LPARAM lParam)
 	return TRUE;
 }
 
-HRESULT CDlgChatMsg::onChannelJoined(WPARAM wParam, LPARAM lParam)
+LRESULT CDlgChatMsg::onChannelJoined(WPARAM wParam, LPARAM lParam)
 {
 	PAG_SIGNAL_CHANNELJOIN lpData = (PAG_SIGNAL_CHANNELJOIN)wParam;
 	char logDesc[MAXPATHLEN] = { '\0' };
@@ -308,7 +308,7 @@ HRESULT CDlgChatMsg::onChannelJoined(WPARAM wParam, LPARAM lParam)
 	return TRUE;
 }
 
-HRESULT CDlgChatMsg::onChannelJoinFailed(WPARAM wParam, LPARAM lParam)
+LRESULT CDlgChatMsg::onChannelJoinFailed(WPARAM wParam, LPARAM lParam)
 {
 	PAG_SIGNAL_CHANNELJOINFAILED lpData = (PAG_SIGNAL_CHANNELJOINFAILED)wParam;
 	char logDesc[MAXPATHLEN] = { '\0' };
@@ -322,7 +322,7 @@ HRESULT CDlgChatMsg::onChannelJoinFailed(WPARAM wParam, LPARAM lParam)
 	return TRUE;
 }
 
-HRESULT CDlgChatMsg::onChannelLeaved(WPARAM wParam, LPARAM lParam)
+LRESULT CDlgChatMsg::onChannelLeaved(WPARAM wParam, LPARAM lParam)
 {
 	PAG_SIGNAL_CHANNELLEAVE lpData = (PAG_SIGNAL_CHANNELLEAVE)wParam;
 	char logDesc[MAXPATHLEN] = { '\0' };
@@ -333,7 +333,7 @@ HRESULT CDlgChatMsg::onChannelLeaved(WPARAM wParam, LPARAM lParam)
 	return TRUE;
 }
 
-HRESULT CDlgChatMsg::onChannelUserList(WPARAM wParam, LPARAM lParam)
+LRESULT CDlgChatMsg::onChannelUserList(WPARAM wParam, LPARAM lParam)
 {
 	PAG_SIGNAL_CHANNELUSERLIST lpData = (PAG_SIGNAL_CHANNELUSERLIST)wParam;
 	delete lpData; lpData = nullptr;

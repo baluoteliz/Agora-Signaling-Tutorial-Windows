@@ -255,7 +255,7 @@ void CAgoraSignalingutorialDlg::uninitResource()
 	}
 }
 
-HRESULT CAgoraSignalingutorialDlg::onLoginSuccess(WPARAM wParam, LPARAM lParam)
+LRESULT CAgoraSignalingutorialDlg::onLoginSuccess(WPARAM wParam, LPARAM lParam)
 {
 	PAG_SIGNAL_LOGINSUCCESS lpData = (PAG_SIGNAL_LOGINSUCCESS)wParam;
 	char logDesc[MAXPATHLEN] = { '\0' };
@@ -283,7 +283,7 @@ HRESULT CAgoraSignalingutorialDlg::onLoginSuccess(WPARAM wParam, LPARAM lParam)
 	return true;
 }
 
-HRESULT CAgoraSignalingutorialDlg::onLogout(WPARAM wParam, LPARAM lParam)
+LRESULT CAgoraSignalingutorialDlg::onLogout(WPARAM wParam, LPARAM lParam)
 {
 	PAG_SIGNAL_LOGOUT lpData = (PAG_SIGNAL_LOGOUT)wParam;
 	char logDesc[MAXPATHLEN] = { '\0' };
@@ -300,7 +300,7 @@ HRESULT CAgoraSignalingutorialDlg::onLogout(WPARAM wParam, LPARAM lParam)
 }
 
 
-HRESULT CAgoraSignalingutorialDlg::onLogFailed(WPARAM wParam, LPARAM lParam)
+LRESULT CAgoraSignalingutorialDlg::onLogFailed(WPARAM wParam, LPARAM lParam)
 {
 	PAG_SIGNAL_LOGINFAILED lpData = (PAG_SIGNAL_LOGINFAILED)wParam;
 	char logDesc[MAXPATHLEN] = { '\0' };

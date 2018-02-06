@@ -48,17 +48,17 @@ public:
 	afx_msg void OnBnClickedButtonP2pmsg();
 	afx_msg void OnBnClickedButtonChannelmsg();
 
-	HRESULT onUpdateInputParam(WPARAM wParam, LPARAM lParam);
-	HRESULT onQueryUserStatusResult(WPARAM wParam, LPARAM lParam);
-	HRESULT onMessageSendSuccess(WPARAM wParam, LPARAM lParam);
-	HRESULT onMessageSendError(WPARAM wParam, LPARAM lParam);
-	HRESULT onMessageInstantReceive(WPARAM wParam, LPARAM lParam);
-	HRESULT onMessageChannelReceive(WPARAM wParam, LPARAM lParam);
+	LRESULT onUpdateInputParam(WPARAM wParam, LPARAM lParam);
+	LRESULT onQueryUserStatusResult(WPARAM wParam, LPARAM lParam);
+	LRESULT onMessageSendSuccess(WPARAM wParam, LPARAM lParam);
+	LRESULT onMessageSendError(WPARAM wParam, LPARAM lParam);
+	LRESULT onMessageInstantReceive(WPARAM wParam, LPARAM lParam);
+	LRESULT onMessageChannelReceive(WPARAM wParam, LPARAM lParam);
 
-	HRESULT onChannelJoined(WPARAM wParam, LPARAM lParam);
-	HRESULT onChannelJoinFailed(WPARAM wParam, LPARAM lParam);
-	HRESULT onChannelLeaved(WPARAM wParam, LPARAM lParam);
-	HRESULT onChannelUserList(WPARAM wParam,LPARAM lParam);
+	LRESULT onChannelJoined(WPARAM wParam, LPARAM lParam);
+	LRESULT onChannelJoinFailed(WPARAM wParam, LPARAM lParam);
+	LRESULT onChannelLeaved(WPARAM wParam, LPARAM lParam);
+	LRESULT onChannelUserList(WPARAM wParam,LPARAM lParam);
 	LRESULT onChannelQueryUserNumResult(WPARAM wParam, LPARAM lParam);
 
 
