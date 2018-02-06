@@ -59,6 +59,8 @@ BEGIN_MESSAGE_MAP(CDlgChatMsg, CDialogEx)
 	ON_MESSAGE(WM_ChannelJoined, onChannelJoined)
 	ON_MESSAGE(WM_ChannelJoinedFailed, onChannelJoinFailed)
 	ON_MESSAGE(WM_ChannelLeaved, onChannelLeaved)
+	ON_MESSAGE(WM_ChannelUserList,onChannelUserList)
+	ON_MESSAGE(WM_ChannelQueryUserNumResult, onChannelQueryUserNumResult)
 END_MESSAGE_MAP()
 
 BOOL CDlgChatMsg::OnInitDialog()
@@ -111,6 +113,11 @@ void CDlgChatMsg::OnTimer(UINT_PTR nIDEvent)
 
 			std::string curAccount = m_pCurChat->getCurParam();
 			m_pSignalInstance->QueryIsOnline(curAccount);
+		}
+		else if (m_pCurChat && eType_Channel == m_pCurChat->getCurType()){
+
+			std::string curChannel = m_pCurChat->getCurParam();
+			m_pSignalInstance->ChannelQueryNumResult(curChannel);
 		}
 		
 		if (m_pDlgInput && m_curOptionType == eType_Instance && !m_pDlgInput->IsWindowVisible()){
@@ -321,6 +328,32 @@ HRESULT CDlgChatMsg::onChannelLeaved(WPARAM wParam, LPARAM lParam)
 	char logDesc[MAXPATHLEN] = { '\0' };
 	sprintf_s(logDesc, "onChannelLeaved(%s,%u,%d)", lpData->channelID.data(), lpData->channelID.size(), lpData->ecode);
 	LOG_MSG(logDesc, LogType_CallBack);
+
+	delete lpData; lpData = nullptr;
+	return TRUE;
+}
+
+HRESULT CDlgChatMsg::onChannelUserList(WPARAM wParam, LPARAM lParam)
+{
+	PAG_SIGNAL_CHANNELUSERLIST lpData = (PAG_SIGNAL_CHANNELUSERLIST)wParam;
+	delete lpData; lpData = nullptr;
+
+	return TRUE;
+}
+
+LRESULT CDlgChatMsg::onChannelQueryUserNumResult(WPARAM wParam, LPARAM lParam)
+{
+	PAG_SIGNAL_CHANNELQUERYUSERNUMRESULT lpData = (PAG_SIGNAL_CHANNELQUERYUSERNUMRESULT)wParam;
+	char logDesc[MAXPATHLEN] = { '\0' };
+	sprintf_s(logDesc, "onChannelQueryUserNumResult(%s,%u,%d,%d)", lpData->channelID.data(), lpData->channelID.size(), lpData->ecode,lpData->num);
+	LOG_MSG(logDesc, LogType_CallBack);
+
+	std::map<std::string, CChatDlg*>::iterator it = m_mapChatChannel.find(lpData->channelID);
+	if (m_mapChatChannel.end() != it){
+		CString strParam;
+		strParam.Format(_T("%s (频道内人数: %d)"), s2cs(lpData->channelID), lpData->num);
+		GetDlgItem(IDC_STATIC_CURCHATID)->SetWindowTextW(strParam);
+	}
 
 	delete lpData; lpData = nullptr;
 	return TRUE;

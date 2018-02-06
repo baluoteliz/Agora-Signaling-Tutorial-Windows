@@ -58,6 +58,9 @@ public:
 	HRESULT onChannelJoined(WPARAM wParam, LPARAM lParam);
 	HRESULT onChannelJoinFailed(WPARAM wParam, LPARAM lParam);
 	HRESULT onChannelLeaved(WPARAM wParam, LPARAM lParam);
+	HRESULT onChannelUserList(WPARAM wParam,LPARAM lParam);
+	LRESULT onChannelQueryUserNumResult(WPARAM wParam, LPARAM lParam);
+
 
 private:
 	std::map<std::string, CChatDlg* > m_mapChatP2P;

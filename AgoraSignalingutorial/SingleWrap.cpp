@@ -86,10 +86,24 @@ void CSingleCallBack::onChannelUserLeaved(char const * account, size_t account_s
 
 void CSingleCallBack::onChannelUserList(int n, char** accounts, uint32_t* uids)
 {
+	PAG_SIGNAL_CHANNELUSERLIST lpData = new AG_SIGNAL_CHANNELUSERLIST;
+	lpData->nUserNum = n;
+	lpData->curChannel = *accounts;
+	lpData->uids = *uids;
+
+	postMsg(WM_ChannelUserList, (WPARAM)lpData);
 }
 
 void CSingleCallBack::onChannelQueryUserNumResult(char const * channelID, size_t channelID_size, int ecode, int num)
 {
+	PAG_SIGNAL_CHANNELQUERYUSERNUMRESULT lpData = new AG_SIGNAL_CHANNELQUERYUSERNUMRESULT;
+	if (lpData){
+		lpData->channelID = utf82gbk(channelID);
+		lpData->ecode = ecode;
+		lpData->num = num;
+	}
+
+	postMsg(WM_ChannelQueryUserNumResult, (WPARAM)lpData);
 }
 
 void CSingleCallBack::onChannelQueryUserIsIn(char const * channelID, size_t channelID_size, char const * account, size_t account_size, int isIn)
