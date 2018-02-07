@@ -43,9 +43,9 @@ protected:
 public:
 	afx_msg void OnBnClickedButtonLogin();
 
-	HRESULT onLoginSuccess(WPARAM wParam, LPARAM lParam);
-	HRESULT onLogout(WPARAM wParam, LPARAM lParam);
-	HRESULT onLogFailed(WPARAM wParam, LPARAM lParam);
+	LRESULT onLoginSuccess(WPARAM wParam, LPARAM lParam);
+	LRESULT onLogout(WPARAM wParam, LPARAM lParam);
+	LRESULT onLogFailed(WPARAM wParam, LPARAM lParam);
 	LRESULT onError(WPARAM wParam, LPARAM lParam);
 	LRESULT onLog(WPARAM wParam, LPARAM lParam);
 
