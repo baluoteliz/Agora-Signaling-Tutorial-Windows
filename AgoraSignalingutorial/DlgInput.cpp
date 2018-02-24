@@ -56,7 +56,7 @@ BOOL CDlgInput::PreTranslateMessage(MSG* pMsg)
 		GetDlgItem(IDC_EDIT_INPUT_PARAM)->GetWindowTextW(InputParam);
 		if (_T("") == InputParam){
 
-			AfxMessageBox(_T("ÊäÈëÎª¿Õ"));
+			AfxMessageBox(_T("Input is blank."));
 		}
 		else{
 

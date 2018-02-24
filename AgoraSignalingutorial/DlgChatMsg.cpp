@@ -91,9 +91,6 @@ void CDlgChatMsg::OnPaint()
 	RECT rt;
 	pTempWnd->GetWindowRect(&rt);
 	ScreenToClient(&rt);
-
-	//dc.TextOutW(_T("2323sdsdgsdgsd"), RECT(rt.left+ 20,rt.top + 200,rt.right,rt.bottom), DT_CENTER);
-	dc.TextOutW(rt.left + 100, rt.top+ 100, _T("sdgsdgsdg"));
 }
 
 void CDlgChatMsg::OnClose()
@@ -315,7 +312,7 @@ LRESULT CDlgChatMsg::onChannelJoinFailed(WPARAM wParam, LPARAM lParam)
 	sprintf_s(logDesc, "onChannelJoinFailed(%s,%u,%d)", lpData->channelID.data(), lpData->channelID.size(),lpData->ecode);
 	LOG_MSG(logDesc, LogType_CallBack);
 	CString strChannel = s2cs(lpData->channelID);
-	AfxMessageBox(_T("加入频道失败"));
+	AfxMessageBox(_T("join channel failed.."));
 	strChannel.ReleaseBuffer();
 
 	delete lpData; lpData = nullptr;
@@ -351,7 +348,7 @@ LRESULT CDlgChatMsg::onChannelQueryUserNumResult(WPARAM wParam, LPARAM lParam)
 	std::map<std::string, CChatDlg*>::iterator it = m_mapChatChannel.find(lpData->channelID);
 	if (m_mapChatChannel.end() != it){
 		CString strParam;
-		strParam.Format(_T("%s (频道内人数: %d)"), s2cs(lpData->channelID), lpData->num);
+		strParam.Format(_T("%s (numbers of channel: %d)"), s2cs(lpData->channelID), lpData->num);
 		GetDlgItem(IDC_STATIC_CURCHATID)->SetWindowTextW(strParam);
 	}
 

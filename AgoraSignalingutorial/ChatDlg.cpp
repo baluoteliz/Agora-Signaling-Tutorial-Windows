@@ -89,23 +89,6 @@ void CChatDlg::AddChatMessage(std::string Uid, LPCTSTR lpMessage)
 	CString str;
 	CString strUid = s2cs(Uid);
 
-#if 0
-	if (m_curAccount == Uid){
-		str.Format(_T("[%s]:%s"), strUid.GetBuffer(), lpMessage);
-	}
-	else{
-		CString spaceStr;
-		
-		int spaceLen = m_widthChar - cs2s(CString(lpMessage)).size() - 6;
-		for (int i = 0; i < spaceLen; i++){
-			spaceStr += L" ";
-		}
-		str.Format(_T("%s%s:[%s]"), spaceStr.GetBuffer(),lpMessage,strUid.GetBuffer());
-		int len = str.GetLength();
-		spaceStr.ReleaseBuffer();
-	}
-#endif
-
 	str.Format(_T("[%s]:%s"), strUid.GetBuffer(), lpMessage);
 	strUid.ReleaseBuffer();
 

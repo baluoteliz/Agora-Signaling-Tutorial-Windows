@@ -182,11 +182,11 @@ void CAgoraSignalingutorialDlg::OnBnClickedButtonLogin()
 	CString strAccount;
 	GetDlgItem(IDC_EDIT_Login_Account)->GetWindowTextW(strAccount);
 	if (_T("") == strAccount){
-		AfxMessageBox(_T("Account 不能为空.请重新输入.."));
+		AfxMessageBox(_T("Account can not be empty,please re_enter.."));
 		return;
 	}
 	else if (isContailSpace(strAccount)){
-		AfxMessageBox(_T("Account 不能包含空字符.请重新输入.."));
+		AfxMessageBox(_T("Account contain blank characters.please re_enter.."));
 		return;
 	}
 
@@ -223,7 +223,7 @@ void CAgoraSignalingutorialDlg::initResource()
 		gConfigSignal.setAppID("");
 		std::string ConfigPath = gConfigSignal.getFilePath();
 		ShellExecute(NULL, _T("open"), s2cs(ConfigPath), NULL, NULL, SW_SHOW);
-		AfxMessageBox(_T("APPID 不能为空,请修改AgoraSignal.ini配置项中的AppID 和 AppCertificatedId"));
+		AfxMessageBox(_T("APPID can not be empty ,Please modify the AppID and AppCertificatedId in the AgoraSignal.ini configuration item"));
 		PostQuitMessage(0);
 		return;
 	}
