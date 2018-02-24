@@ -176,6 +176,16 @@ bool CAgoraSignalInstance::sendChannelMsg(const std::string &channel, const std:
 	return FALSE;
 }
 
+bool CAgoraSignalInstance::ChannelQueryNumResult(const std::string &channelID)
+{
+	if (m_AgoraAPI){
+		m_AgoraAPI->channelQueryUserNum(channelID.data(), channelID.size());
+		return TRUE;
+	}
+
+	return FALSE;
+}
+
 bool CAgoraSignalInstance::JoinChannel(const std::string &channelID)
 {
 	if (m_AgoraAPI){

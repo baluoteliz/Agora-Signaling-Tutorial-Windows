@@ -220,6 +220,9 @@ void CAgoraSignalingutorialDlg::initResource()
 	std::string AppId = gConfigSignal.getAppID();
 	if ("" == AppId)
 	{
+		gConfigSignal.setAppID("");
+		std::string ConfigPath = gConfigSignal.getFilePath();
+		ShellExecute(NULL, _T("open"), s2cs(ConfigPath), NULL, NULL, SW_SHOW);
 		AfxMessageBox(_T("APPID 不能为空,请修改AgoraSignal.ini配置项中的AppID 和 AppCertificatedId"));
 		PostQuitMessage(0);
 		return;
@@ -252,7 +255,7 @@ void CAgoraSignalingutorialDlg::uninitResource()
 	}
 }
 
-HRESULT CAgoraSignalingutorialDlg::onLoginSuccess(WPARAM wParam, LPARAM lParam)
+LRESULT CAgoraSignalingutorialDlg::onLoginSuccess(WPARAM wParam, LPARAM lParam)
 {
 	PAG_SIGNAL_LOGINSUCCESS lpData = (PAG_SIGNAL_LOGINSUCCESS)wParam;
 	char logDesc[MAXPATHLEN] = { '\0' };
@@ -280,7 +283,7 @@ HRESULT CAgoraSignalingutorialDlg::onLoginSuccess(WPARAM wParam, LPARAM lParam)
 	return true;
 }
 
-HRESULT CAgoraSignalingutorialDlg::onLogout(WPARAM wParam, LPARAM lParam)
+LRESULT CAgoraSignalingutorialDlg::onLogout(WPARAM wParam, LPARAM lParam)
 {
 	PAG_SIGNAL_LOGOUT lpData = (PAG_SIGNAL_LOGOUT)wParam;
 	char logDesc[MAXPATHLEN] = { '\0' };
@@ -297,7 +300,7 @@ HRESULT CAgoraSignalingutorialDlg::onLogout(WPARAM wParam, LPARAM lParam)
 }
 
 
-HRESULT CAgoraSignalingutorialDlg::onLogFailed(WPARAM wParam, LPARAM lParam)
+LRESULT CAgoraSignalingutorialDlg::onLogFailed(WPARAM wParam, LPARAM lParam)
 {
 	PAG_SIGNAL_LOGINFAILED lpData = (PAG_SIGNAL_LOGINFAILED)wParam;
 	char logDesc[MAXPATHLEN] = { '\0' };
